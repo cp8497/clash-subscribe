@@ -1,0 +1,22 @@
+proxies:
+  - name: "Hysteria2-roosterstudio"
+    type: hysteria2
+    server: vpn.roosterstudio.cloud
+    port: 443
+    password: "YourStrongPassword"
+    alpn:
+      - h3
+    sni: vpn.roosterstudio.cloud
+    skip-cert-verify: false
+    up: 50
+    down: 100
+
+proxy-groups:
+  - name: "🔰 节点选择"
+    type: select
+    proxies:
+      - "Hysteria2-roosterstudio"
+      - DIRECT
+
+rules:
+  - MATCH,🔰 节点选择
